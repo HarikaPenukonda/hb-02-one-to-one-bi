@@ -39,7 +39,14 @@ public class GetInstructorDetailDemo {
 			
 			System.out.println("Done!");
 			
-		}finally {
+		}
+		catch(NullPointerException e)
+		{
+			e.printStackTrace();
+		}
+		finally {
+			// handle connection leak issue
+			session.close();
 			factory.close();
 		}
 	}
